@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TEST_OC_P9.iml" filepath="$PROJECT_DIR$/.idea/TEST_OC_P9.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp.iml" filepath="$PROJECT_DIR$/src/myerp.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp-business/myerp-business.iml" filepath="$PROJECT_DIR$/src/myerp-business/myerp-business.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/myerp-consumer/myerp-consumer.iml" filepath="$PROJECT_DIR$/src/myerp-consumer/myerp-consumer.iml" />
