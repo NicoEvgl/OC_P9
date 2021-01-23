@@ -1,7 +1,7 @@
 language: java
 
 jdk:
-  - openjdk8
+  - openjdk11
 
 services:
   - docker
@@ -17,7 +17,7 @@ before_script:
 script:
 
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean verify -P test-consumer,test-business sonar:sonar -Dsonar.login=d8835cba94cdb9f3049144cdf375a880ea0f87bd
+  - mvn clean verify -P test-consumer,test-business sonar:sonar -Dsonar.login=a1c09338c829e60db8a141c686207d664eeba0c9
   - cd ../docker/dev
   - docker-compose stop
   - docker-compose rm -f
@@ -31,6 +31,6 @@ notifications:
 
 addons:
   sonarcloud:
-    organization: "kamika-ze"
+    organization: "nicoevgl"
     token:
-      secure: d8835cba94cdb9f3049144cdf375a880ea0f87bd # encrypted value of your token
+      secure: a1c09338c829e60db8a141c686207d664eeba0c9 # encrypted value of your token

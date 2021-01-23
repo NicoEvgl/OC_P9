@@ -55,10 +55,10 @@
         <spring.version>4.3.7.RELEASE</spring.version>
 
         <!-- ===== Sonar Cloud properties ===== -->
-        <sonar.projectKey>Kamika-ZE_TEST_OC_P9</sonar.projectKey>
-        <sonar.organization>kamika-ze</sonar.organization>
+        <sonar.projectKey>NicoEvgl_OC_P9</sonar.projectKey>
+        <sonar.organization>nicoevgl</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.login>d8835cba94cdb9f3049144cdf375a880ea0f87bd</sonar.login>
+        <sonar.login>a1c09338c829e60db8a141c686207d664eeba0c9</sonar.login>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.language>java</sonar.language>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
@@ -289,6 +289,20 @@
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <!-- API, java.xml.bind module -->
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>2.3.2</version>
+            </dependency>
+
+            <!-- Runtime, com.sun.xml.bind module -->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.2</version>
             </dependency>
 
         </dependencies>

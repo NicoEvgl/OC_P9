@@ -66,7 +66,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("AC-2020/00001");
+        vEcritureComptable.setReference("AC-2021/00001");
         vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
                 null, new BigDecimal(123),
                 null));
@@ -82,7 +82,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("BQ", "Banque"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("BQ-2020/00001");
+        vEcritureComptable.setReference("BQ-2021/00001");
         vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
                 null, new BigDecimal(123),
                 null));
@@ -156,7 +156,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("AC-2020/000001");
+        vEcritureComptable.setReference("AC-2021/000001");
 
         manager.regleGestion5(vEcritureComptable);
     }
@@ -176,7 +176,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("ABN-2020/00001");
+        vEcritureComptable.setReference("ABN-2021/00001");
         try{
             manager.regleGestion5(vEcritureComptable);
             fail("FunctionalException not thrown");
@@ -206,7 +206,7 @@ public class ComptabiliteManagerImplTest {
 
         manager.addReference(vEcritureComptable);
 
-        assertEquals("AC-2020/00009", vEcritureComptable.getReference());
+        assertEquals("AC-2021/00009", vEcritureComptable.getReference());
     }
 
 
@@ -231,7 +231,7 @@ public class ComptabiliteManagerImplTest {
 
         manager.addReference(vEcritureComptable);
 
-        assertEquals("AC-2020/00001", vEcritureComptable.getReference());
+        assertEquals("AC-2021/00001", vEcritureComptable.getReference());
     }
 
     @Test
@@ -239,7 +239,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("AC-2020/00001");
+        vEcritureComptable.setReference("AC-2021/00001");
         vEcritureComptable.setId(1);
         EcritureComptable returnedEcritureComptable = new EcritureComptable();
         returnedEcritureComptable.setId(vEcritureComptable.getId() + 1); // not the same id !!
@@ -260,7 +260,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("AC-2020/00001");
+        vEcritureComptable.setReference("AC-2021/00001");
         vEcritureComptable.setId(1);
 
         when(comptabiliteDao.getEcritureComptableByRef(vEcritureComptable.getReference()))
@@ -280,7 +280,7 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Libelle");
-        vEcritureComptable.setReference("AC-2020/00001");
+        vEcritureComptable.setReference("AC-2021/00001");
         vEcritureComptable.getListLigneEcriture().add(this.createLigne(1, "200.50", null));
         vEcritureComptable.getListLigneEcriture().add(this.createLigne(1, "100.50", "33"));
         vEcritureComptable.getListLigneEcriture().add(this.createLigne(2, null, "301"));
