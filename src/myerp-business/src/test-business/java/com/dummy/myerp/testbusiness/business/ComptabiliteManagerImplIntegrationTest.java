@@ -67,7 +67,7 @@ public class ComptabiliteManagerImplIntegrationTest extends BusinessTestCase {
     public void checkInsertEcritureComptableReturnNoError() throws FunctionalException {
         EcritureComptable vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setJournal(new JournalComptable("VE", "Vente"));
-        vEcritureComptable.setReference("VE-2020/00006");
+        vEcritureComptable.setReference("VE-2021/00006");
         vEcritureComptable.setDate(new Date());
         vEcritureComptable.setLibelle("Test integration vente");
         vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(411),
@@ -84,7 +84,7 @@ public class ComptabiliteManagerImplIntegrationTest extends BusinessTestCase {
         vRetour = vRetour.add(new BigDecimal(123));
 
         for (EcritureComptable ecritureComptable : ecritureComptableList) {
-            if (ecritureComptable.getReference().equals("VE-2020/00006")) {
+            if (ecritureComptable.getReference().equals("VE-2021/00006")) {
                 Assertions.assertThat(ecritureComptable.getLibelle()).isEqualTo("Test integration vente");
 
                 for (LigneEcritureComptable ligneEcritureComptable : ecritureComptable.getListLigneEcriture()) {
