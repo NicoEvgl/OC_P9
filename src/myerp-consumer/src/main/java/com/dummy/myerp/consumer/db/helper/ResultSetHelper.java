@@ -54,7 +54,7 @@ public abstract class ResultSetHelper {
         Long vRetour = null;
         Long vLong = pRS.getLong(pColName);
         if (!pRS.wasNull()) {
-            vRetour = Long.valueOf(vLong);
+            vRetour = vLong;
         }
         return vRetour;
     }
