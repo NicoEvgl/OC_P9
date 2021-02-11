@@ -161,7 +161,7 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
         int sizeInit = getDaoProxy().getComptabiliteDao().getListSequenceEcritureComptable().size();
         SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable();
         sequenceEcritureComptable.setJournalCode("AC");
-        sequenceEcritureComptable.setAnnee(2018);
+        sequenceEcritureComptable.setAnnee(2017);
         sequenceEcritureComptable.setDerniereValeur(100);
         getDaoProxy().getComptabiliteDao().insertSequenceEcritureComptable(sequenceEcritureComptable);
         int sizeFinal = getDaoProxy().getComptabiliteDao().getListSequenceEcritureComptable().size();
@@ -171,7 +171,7 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
     @Test
     public void updateSequenceEcritureComptableShouldReturnSequence() throws NotFoundException {
         SequenceEcritureComptable sequenceInDb = getDaoProxy().getComptabiliteDao().getSequenceEcritureComptable("AC", 2019);
-        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable("AC", 2019, 200);
+        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable("AC", 2018, 200);
         getDaoProxy().getComptabiliteDao().updateSequenceEcritureComptable(sequenceEcritureComptable);
         assertThat(sequenceInDb.getDerniereValeur()).isNotEqualTo(sequenceEcritureComptable.getDerniereValeur());
     }
