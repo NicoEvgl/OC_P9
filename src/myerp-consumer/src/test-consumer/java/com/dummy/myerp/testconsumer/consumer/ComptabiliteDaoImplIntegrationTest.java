@@ -38,50 +38,12 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
 
     }
 
-    @Test
-    public void getEcritureComptableShouldReturnEcritureComptable() throws NotFoundException {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String dateStringTest = "2016-12-30";
-
-        EcritureComptable ecritureComptable;
-        try {
-            ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptable(-2);
-            assertThat(ecritureComptable).isNotNull();
-            assertThat(ecritureComptable.getReference()).isEqualTo("VE-2016/00002");
-            assertThat(ecritureComptable.getJournal().getCode()).isEqualTo("VE");
-            Date dateTest = formatter.parse(dateStringTest);
-            assertThat(ecritureComptable.getDate()).isEqualTo(dateTest);
-            assertThat(ecritureComptable.getLibelle()).isEqualTo("Imprimante");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Test(expected = NotFoundException.class)
     public void getEcritureComptableByIdShouldReturnException() throws NotFoundException {
         getDaoProxy().getComptabiliteDao().getEcritureComptable(-10);
     }
 
 
-    @Test
-    public void getEcritureComptableByRefShouldReturnEcritureComptable() throws NotFoundException {
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String dateStringTest = "2016-12-30";
-
-        EcritureComptable ecritureComptable;
-        try {
-            ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptableByRef("VE-2016/00002");
-            assertThat(ecritureComptable).isNotNull();
-            assertThat(ecritureComptable.getId()).isEqualTo(-2);
-            assertThat(ecritureComptable.getJournal().getCode()).isEqualTo("VE");
-            Date dateTest = formatter.parse(dateStringTest);
-            assertThat(ecritureComptable.getDate()).isEqualTo(dateTest);
-            assertThat(ecritureComptable.getLibelle()).isEqualTo("Imprimante");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test(expected = NotFoundException.class)
     public void getEcritureComptableByReferenceShouldReturnException() throws NotFoundException {
@@ -95,8 +57,6 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
         assertThat(ecritureComptable.getListLigneEcriture().get(0).getCompteComptable().getNumero()).isEqualTo(512);
         assertThat(ecritureComptable.getListLigneEcriture().get(1).getCompteComptable().getNumero()).isEqualTo(411);
     }
-
-
 
     @Test
     public void getListSequenceEcritureComptableShouldReturnList(){
