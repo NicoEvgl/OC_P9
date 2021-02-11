@@ -90,10 +90,10 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
 
     @Test
     public void loadListLigneEcriture() throws NotFoundException {
-        EcritureComptable ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptable(-3);
+        EcritureComptable ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptable(-4);
         getDaoProxy().getComptabiliteDao().loadListLigneEcriture(ecritureComptable);
-        assertThat(ecritureComptable.getListLigneEcriture().get(0).getCompteComptable().getNumero()).isEqualTo(401);
-        assertThat(ecritureComptable.getListLigneEcriture().get(1).getCompteComptable().getNumero()).isEqualTo(512);
+        assertThat(ecritureComptable.getListLigneEcriture().get(0).getCompteComptable().getNumero()).isEqualTo(411);
+        assertThat(ecritureComptable.getListLigneEcriture().get(1).getCompteComptable().getNumero()).isEqualTo(706);
     }
 
     @Test
@@ -104,8 +104,8 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
         int sequence = Integer.parseInt(ecritureComptable.getReference().substring(8)) + 1;
         SimpleDateFormat formater = new SimpleDateFormat("yyyy");
 
-        ecritureComptable.setJournal(new JournalComptable("TE", "Tests"));
-        ecritureComptable.setLibelle("Integration Test INSERT");
+        ecritureComptable.setJournal(new JournalComptable("AC", "Achats"));
+        ecritureComptable.setLibelle("Integration Test Achats");
         ecritureComptable.setDate(new Date());
         int annee = Integer.parseInt(formater.format(ecritureComptable.getDate()));
         ecritureComptable.setReference(ecritureComptable.getJournal().getCode() + "-" + annee + "/" + String.format("%05d", sequence));
@@ -136,7 +136,7 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
     @Test
     public void deleteEcritureComptableById() throws NotFoundException {
 
-        EcritureComptable ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptable(-6);
+        EcritureComptable ecritureComptable = getDaoProxy().getComptabiliteDao().getEcritureComptable(-4);
         int initialSizeList = getDaoProxy().getComptabiliteDao().getListEcritureComptable().size();
         getDaoProxy().getComptabiliteDao().deleteEcritureComptable(ecritureComptable.getId());
         int sizeList = getDaoProxy().getComptabiliteDao().getListEcritureComptable().size();
@@ -160,8 +160,8 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
     public void insertSequenceEcritureComptableShouldReturnSequence(){
         int sizeInit = getDaoProxy().getComptabiliteDao().getListSequenceEcritureComptable().size();
         SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable();
-        sequenceEcritureComptable.setJournalCode("TE");
-        sequenceEcritureComptable.setAnnee(2021);
+        sequenceEcritureComptable.setJournalCode("AC");
+        sequenceEcritureComptable.setAnnee(2020);
         sequenceEcritureComptable.setDerniereValeur(100);
         getDaoProxy().getComptabiliteDao().insertSequenceEcritureComptable(sequenceEcritureComptable);
         int sizeFinal = getDaoProxy().getComptabiliteDao().getListSequenceEcritureComptable().size();
@@ -170,8 +170,8 @@ public class ComptabiliteDaoImplIntegrationTest extends ConsumerTestCase {
 
     @Test
     public void updateSequenceEcritureComptableShouldReturnSequence() throws NotFoundException {
-        SequenceEcritureComptable sequenceInDb = getDaoProxy().getComptabiliteDao().getSequenceEcritureComptable("TE", 2020);
-        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable("TE", 2020, 150);
+        SequenceEcritureComptable sequenceInDb = getDaoProxy().getComptabiliteDao().getSequenceEcritureComptable("AC", 2020);
+        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable("AC", 2020, 150);
         getDaoProxy().getComptabiliteDao().updateSequenceEcritureComptable(sequenceEcritureComptable);
         assertThat(sequenceInDb.getDerniereValeur()).isNotEqualTo(sequenceEcritureComptable.getDerniereValeur());
     }
