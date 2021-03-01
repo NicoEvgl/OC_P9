@@ -27,10 +27,6 @@ public class JournalComptableTest {
         assertEquals(JournalComptable.getByCode(vList, "AC"), vList.get(0));
     }
 
-    @Test
-    public void testJournalComptableToString(){
-        assertEquals("JournalComptable{code='AC', libelle='Achat'}", vList.get(0).toString());
-    }
 
     @After
     public void clearList() {
